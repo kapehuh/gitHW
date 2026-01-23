@@ -1,34 +1,47 @@
-//1
-function checkInput(){
-    const myinp = document.querySelector('.myi');
-    const mybut = document.querySelector('.myb');
-    if (myinp.value.trim() !== '') {
-        mybut.hidden = false;
-    }else{
-        mybut.hidden = true;
-    }
+//1 Проверка ввода
+function checkInput(inputElement, buttonElement) {
+  if (inputElement.value.trim() !== '') {
+    buttonElement.hidden = false;
+  }else{
+    buttonElement.hidden = true;
+  }
 }
 
-//2
-myinp = document.querySelector('.myi');
-el = document.querySelector('.myb');
-p = document.querySelector('.pOut');
-el.addEventListener('click', handler);
+//2 Логика добавления <p>
+function initApp() {
+  const myinp = document.querySelector(".myi");
+  const mybut = document.querySelector(".myb");
+  const p = document.querySelector(".pOut");
 
-function handler(){
-    // const pcount = p.children.length;
-    // console.log(pcount);
-    if (p.children.length < 4) {
-        const np = document.createElement('p');
-        np.innerText = myinp.value;
-        p.append(np);
-        myinp.value = '';
-    }else{
-        let ffirstChild = p.firstChild;
-        p.removeChild(ffirstChild);
-        const np = document.createElement('p');
-        np.innerText = myinp.value;
-        p.append(np);
-        myinp.value = '';
-    }
+  checkInput(myinp, mybut);
+
+  mybut.addEventListener('click', () => {
+      if (p.children.length < 4) {
+          const np = document.createElement('p');
+          np.innerText = myinp.value;
+          p.append(np);
+      } else {
+          p.removeChild(p.firstChild);
+          const np = document.createElement('p');
+          np.innerText = myinp.value;
+          p.append(np);
+      }
+      
+      // Очищаем поле и обновляем кнопку
+      myinp.value = '';
+      checkInput(myinp, mybut);
+  });
+}
+
+
+// Экспортируем для тестов
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { checkInput, initApp };
+}
+
+// Инициализация в браузере
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+} else {
+    initApp();
 }
