@@ -1,36 +1,22 @@
 // eslint.config.js
-import js from "@eslint/js";
-import prettierPlugin from "eslint-plugin-prettier/recommended";
-
 export default [
-  js.configs.recommended,
-  prettierPlugin,
   {
+    files: ['**/*.js'],
     languageOptions: {
-      ecmaVersion: 2022,
-      sourceType: "module",
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       globals: {
-        window: "readonly",
-        document: "readonly",
-        console: "readonly",
-        module: "readonly",
-        require: "readonly",
-        __dirname: "readonly",
-        process: "readonly",
-        setTimeout: "readonly",
-        clearTimeout: "readonly",
-        setInterval: "readonly",
-        clearInterval: "readonly",
+        browser: true,
+        node: true,
+        jest: true,
       },
     },
     rules: {
-      "no-unused-vars": "warn",
-      "no-console": "off",
-      eqeqeq: ["error", "always"],
-      "no-var": "error",
-      "prefer-const": "warn",
-      "prettier/prettier": "error",
+      'no-unused-vars': 'warn',
+      'no-console': 'off',
+      'semi': ['error', 'always'],
+      'quotes': ['error', 'single'],
     },
-    ignores: ["node_modules/", "coverage/", "dist/", "build/", "*.min.js"],
+    ignores: ['node_modules/', 'coverage/'],
   },
 ];

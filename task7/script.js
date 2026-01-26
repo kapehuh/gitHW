@@ -9,9 +9,9 @@ function checkInput(inputElement, buttonElement) {
 
 //2 Логика добавления <p>
 function initApp() {
-  const myinp = document.querySelector(".myi");
-  const mybut = document.querySelector(".myb");
-  const p = document.querySelector(".pOut");
+  const myinp = document.querySelector('.myi');
+  const mybut = document.querySelector('.myb');
+  const p = document.querySelector('.pOut');
 
   checkInput(myinp, mybut);
 
@@ -33,15 +33,8 @@ function initApp() {
   });
 }
 
-
 // Экспортируем для тестов
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { checkInput, initApp };
-}
-
-// Инициализация в браузере
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initApp);
-} else {
-    initApp();
+    
 }
