@@ -2,7 +2,7 @@
 function checkInput(inputElement, buttonElement) {
   if (inputElement.value.trim() !== '') {
     buttonElement.hidden = false;
-  }else{
+  } else {
     buttonElement.hidden = true;
   }
 }
@@ -16,24 +16,24 @@ function initApp() {
   checkInput(myinp, mybut);
 
   mybut.addEventListener('click', () => {
-      if (p.children.length < 4) {
-          const np = document.createElement('p');
-          np.innerText = myinp.value;
-          p.append(np);
-      } else {
-          p.removeChild(p.firstChild);
-          const np = document.createElement('p');
-          np.innerText = myinp.value;
-          p.append(np);
-      }
-      
-      // Очищаем поле и обновляем кнопку
-      myinp.value = '';
-      checkInput(myinp, mybut);
+    if (p.children.length < 4) {
+      const np = document.createElement('p');
+      np.innerText = myinp.value;
+      p.append(np);
+    } else {
+      p.removeChild(p.firstChild);
+      const np = document.createElement('p');
+      np.innerText = myinp.value;
+      p.append(np);
+    }
+
+    // Очищаем поле и обновляем кнопку
+    myinp.value = '';
+    checkInput(myinp, mybut);
   });
 }
 
-// Экспортируем для тестов
+// Экспортируем для тестов ...
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { checkInput, initApp }
+  module.exports = { checkInput, initApp };
 }
