@@ -1,8 +1,6 @@
 module.exports = {
   testEnvironment: 'jsdom',
-  collectCoverageFrom: [
-    'script.js'
-  ],
+  collectCoverageFrom: ['script.js'],
   coverageThreshold: {
     global: {
       statements: 60,
@@ -10,5 +8,5 @@ module.exports = {
       functions: 60,
       lines: 60,
     },
-  }
+  },
 };
