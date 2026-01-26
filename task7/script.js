@@ -36,5 +36,5 @@ function initApp() {
 // Экспортируем для тестов ...
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { checkInput, initApp };
-  //add some comment
+  //some comment
 }

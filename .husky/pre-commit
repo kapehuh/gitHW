@@ -1,1 +1,3 @@
+cd task7
+npm test
 npx lint-staged
