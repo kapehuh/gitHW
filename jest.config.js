@@ -1,6 +1,9 @@
 module.exports = {
   testEnvironment: 'jsdom',
-  collectCoverageFrom: ['script.js'],
+  testMatch: [
+    '**/task7/script.test.js',
+  ],
+  collectCoverageFrom: ['task7/script.js'],
   coverageThreshold: {
     global: {
       statements: 60,
